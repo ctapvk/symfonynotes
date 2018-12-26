@@ -1,0 +1,24 @@
+notes_index:
+    path:     /
+    defaults: { _controller: "SerNotesBundle:Notes:index" }
+    methods:  GET
+
+notes_show:
+    path:     /{id}/show
+    defaults: { _controller: "SerNotesBundle:Notes:show" }
+    methods:  GET
+
+notes_new:
+    path:     /new
+    defaults: { _controller: "SerNotesBundle:Notes:new" }
+    methods:  [GET, POST]
+
+notes_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SerNotesBundle:Notes:edit" }
+    methods:  [GET, POST]
+
+notes_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SerNotesBundle:Notes:delete" }
+    methods:  DELETE

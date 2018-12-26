@@ -1,0 +1,4 @@
+services:
+#    ser_notes.example:
+#        class: SerNotesBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -1,0 +1,8 @@
+ser_notes_notes:
+    resource: "@SerNotesBundle/Resources/config/routing/notes.yml"
+    prefix:   /notes
+
+
+ser_notes_homepage:
+    path:     /
+    defaults: { _controller: SerNotesBundle:Notes:index }
