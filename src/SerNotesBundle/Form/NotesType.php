@@ -2,6 +2,9 @@
 
 namespace SerNotesBundle\Form;
 
+use SerNotesBundle\Entity\NoteType;
+use SerNotesBundle\Repository\NoteTypeRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\DomCrawler\Field\TextareaFormField;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -22,6 +25,15 @@ class NotesType extends AbstractType
             ->add('content',TextareaType::class , ['label'=>'form-control'])
             ->add('createrAt', DateType::class , array('label' => 'form-control'))
             ->add('updatedAt',DateType::class)
+
+            ->add('noteType', EntityType::class, [
+                'placeholder' => 'Choose a note',
+                'class' => NoteType::class,
+                'query_builder' => function(NoteTypeRepository $repo) {
+                    return $repo->getNoteTypeByNames();
+                }
+            ])
+
             ;
     }
 

@@ -1,3 +1,7 @@
+ser_notes_note_type:
+    resource: "@SerNotesBundle/Controller/NoteTypeController.php"
+    type:     annotation
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

@@ -13,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Notes
 {
+    private $note;
     /**
      * @var int
      *
@@ -55,6 +56,12 @@ class Notes
      */
     private $user;
 
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="SerNotesBundle\Entity\NoteType")
+     */
+    private $noteType;
 
     /**
      * Get id
@@ -179,5 +186,37 @@ class Notes
     }
 
 
-}
+    /**
+     * @return mixed
+     */
+    public function getNoteType()
+    {
+        return $this->noteType;
+    }
 
+    /**
+     * @param mixed $noteType
+     */
+    public function setNoteType(NoteType $noteType)
+    {
+        $this->noteType = $noteType;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNote()
+    {
+        return $this->note;
+    }
+
+    /**
+     * @param mixed $note
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+    }
+
+
+}

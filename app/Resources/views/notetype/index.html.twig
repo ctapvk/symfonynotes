@@ -1,0 +1,39 @@
+{% extends ':app:base.html.twig' %}
+
+{% block page_content %}
+    <h1>Notetypes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for noteType in noteTypes %}
+            <tr>
+                <td><a href="{{ path('notetype_show', { 'id': noteType.id }) }}">{{ noteType.id }}</a></td>
+                <td>{{ noteType.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('notetype_show', { 'id': noteType.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('notetype_edit', { 'id': noteType.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('notetype_new') }}">Create a new noteType</a>
+        </li>
+    </ul>
+{% endblock %}

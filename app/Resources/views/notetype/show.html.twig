@@ -1,0 +1,32 @@
+{% extends ':app:base.html.twig' %}
+
+{% block page_content %}
+    <h1>Notetype</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ noteType.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ noteType.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('notetype_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('notetype_edit', { 'id': noteType.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
