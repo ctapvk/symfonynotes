@@ -4,6 +4,7 @@ namespace SerNotesBundle\Entity;
 
 use AppBundle\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Notes
@@ -25,28 +26,28 @@ class Notes
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="name", type="string", length=255, nullable=true)
      */
     private $name;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="content", type="text", nullable=true)
      */
     private $content;
 
     /**
      * @var \DateTime
-     *
+     * @Assert\NotBlank(message="Не пустое !")
      * @ORM\Column(name="creater_at", type="datetime", nullable=true)
      */
     private $createrAt;
 
     /**
      * @var \DateTime
-     *
+     * @Assert\NotBlank(message="Не пустое !")
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      */
     private $updatedAt;
@@ -57,15 +58,16 @@ class Notes
     private $user;
 
 
-
     /**
      * @ORM\ManyToOne(targetEntity="SerNotesBundle\Entity\NoteType")
+     * @Assert\NotBlank()
+     * inversedBy="note"
      */
     private $noteType;
 
+
     /**
      * Get id
-     *
      * @return int
      */
     public function getId()

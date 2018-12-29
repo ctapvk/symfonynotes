@@ -3,13 +3,13 @@
 {% block page_content %}
     <h1>Notetypes list</h1>
 
-    <table>
+    <table class="table table-striped jambo_table bulk_action">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for noteType in noteTypes %}
@@ -31,9 +31,5 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('notetype_new') }}">Create a new noteType</a>
-        </li>
-    </ul>
+    <a href="{{ path('notetype_new') }}" class="btn btn-primary">Create a new noteType</a>
 {% endblock %}

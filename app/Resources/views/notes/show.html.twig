@@ -3,7 +3,7 @@
 {% block page_content %}
     <h1>Note</h1>
 
-    <table>
+    <table class="table table-striped jambo_table bulk_action">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -34,7 +34,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('notes_index') }}">Back to the list</a>
+            <a href="{{ path('notes_index') }}" >Back to the list</a>
         </li>
         <li>
             <a href="{{ path('notes_edit', { 'id': note.id }) }}">Edit</a>

@@ -75,6 +75,12 @@ class NotesController extends Controller
     {
         $deleteForm = $this->createDeleteForm($note);
         $editForm = $this->createForm('SerNotesBundle\Form\NotesType', $note);
+
+
+
+        $validator = $this->get('validator');
+        $errors = $validator->validate($note);
+
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -85,7 +91,7 @@ class NotesController extends Controller
 
         return $this->render('notes/edit.html.twig', array(
             'note' => $note,
-            'edit_form' => $editForm->createView(),
+            'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }

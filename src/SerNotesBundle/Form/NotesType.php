@@ -23,8 +23,17 @@ class NotesType extends AbstractType
         $builder
             ->add('name',TextType::class)
             ->add('content',TextareaType::class , ['label'=>'form-control'])
-            ->add('createrAt', DateType::class , array('label' => 'form-control'))
-            ->add('updatedAt',DateType::class)
+            ->add('createrAt', DateType::class ,  [
+                'label'=>'Создано',
+                'widget' => 'single_text',
+                'attr' => ['class' => 'js-datepicker'],
+                'html5' => false,
+            ])
+            ->add('updatedAt', DateType::class, [
+                'widget' => 'single_text',
+                'attr' => ['class' => 'js-datepicker'],
+                'html5' => false,
+            ])
 
             ->add('noteType', EntityType::class, [
                 'placeholder' => 'Choose a note',
@@ -33,8 +42,7 @@ class NotesType extends AbstractType
                     return $repo->getNoteTypeByNames();
                 }
             ])
-
-            ;
+        ;
     }
 
     /**
