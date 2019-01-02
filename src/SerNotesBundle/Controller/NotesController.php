@@ -76,10 +76,7 @@ class NotesController extends Controller
         $deleteForm = $this->createDeleteForm($note);
         $editForm = $this->createForm('SerNotesBundle\Form\NotesType', $note);
 
-
-
-        $validator = $this->get('validator');
-        $errors = $validator->validate($note);
+        $a= $request->get('notesType');
 
         $editForm->handleRequest($request);
 

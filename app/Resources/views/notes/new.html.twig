@@ -1,16 +1,18 @@
-{% extends ':app:base.html.twig' %}
+{% extends ':notes:form.html.twig' %}
 
 {% block page_content %}
-    <h1>Note creation</h1>
+    <h1>Note edit</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+    {{ form_row(form.name) }}
+    {{ form_row(form.content) }}
+    {{ form_row(form.createrAt) }}
+    {{ form_row(form.updatedAt) }}
+    {{ form_row(form.noteType) }}
+
+    <button type="submit" class="btn btn-success" formnovalidate>Создать</button>
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('notes_index') }}">Back to the list</a>
-        </li>
-    </ul>
+
+    <a href="{{ path('notes_index') }}" class="btn btn-primary">Back to the list</a>
 {% endblock %}

@@ -59,9 +59,9 @@ class Notes
 
 
     /**
+     * @Assert\Valid
+     * @Assert\NotBlank(message="не пуст")
      * @ORM\ManyToOne(targetEntity="SerNotesBundle\Entity\NoteType")
-     * @Assert\NotBlank()
-     * inversedBy="note"
      */
     private $noteType;
 

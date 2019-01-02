@@ -35,7 +35,7 @@ class NotesType extends AbstractType
                 'html5' => false,
             ])
 
-            ->add('noteType', EntityType::class, [
+            ->add('noteType', null, [
                 'placeholder' => 'Choose a note',
                 'class' => NoteType::class,
                 'query_builder' => function(NoteTypeRepository $repo) {
@@ -51,7 +51,9 @@ class NotesType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'SerNotesBundle\Entity\Notes'
+            'data_class' => 'SerNotesBundle\Entity\Notes',
+            'cascade_validation' => true,
+
         ));
     }
 
